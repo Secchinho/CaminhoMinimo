@@ -3,6 +3,7 @@
         "*.embeddedhtml": "html",
         "stdlib.h": "c",
         "stdio.h": "c",
-        "grafo.h": "c"
+        "grafo.h": "c",
+        "algoritmo.h": "c"
     }
 }

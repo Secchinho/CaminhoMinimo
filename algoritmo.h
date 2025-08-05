@@ -1,0 +1,1 @@
+void dijkstra(int qtdProibidas ,int numCidades, int matGrafo[numCidades][numCidades], int vetIni, int dist[], int pre[]);

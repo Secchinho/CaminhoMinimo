@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "grafo.h"
+#include "algoritmo.h"
+#define INF 9999999
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +32,8 @@ int main(int argc, char *argv[])
     fscanf(arq, "%d", &numCidades);
     fscanf(arq, "%d", &numEstradas);
 
+    int dist[numCidades];
+    int pre[numCidades];
     int grafo[numCidades][numCidades];
 
     for(int i = 0; i < numCidades; i++)
@@ -42,7 +46,7 @@ int main(int argc, char *argv[])
             }
             else
             {
-                grafo[i][j] = 9999999;
+                grafo[i][j] = INF;
             }
         }
     }
@@ -62,16 +66,18 @@ int main(int argc, char *argv[])
     printf("Digite a quantidade de cidades proibidas para YL: ");
     scanf(" %d", &qtdProibidas);
 
-    printf("\n\nOs valores do grafos são: \n");
-    for(int i = 0; i < numCidades; i++)
-    {
-        for(int j = 0; j < numCidades; j++)
-        {
-            printf("%d ", grafo[i][j]);
-        }
-        printf("\n");
-    }
+    dijkstra(qtdProibidas, numCidades, grafo, origem - 1, dist, pre);
 
+    int tamCaminho = dist[destino - 1];
+
+    if(tamCaminho < INF)
+    {
+        printf("\nO menor caminho a ser percorrido é: %d \n", tamCaminho);
+    }
+    else
+    {
+        printf("\nNão é possível realizar essa viagem\n");
+    }
 
     fclose(arq);
     return 0;
