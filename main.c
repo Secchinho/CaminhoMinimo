@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "grafo.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,11 +30,29 @@ int main(int argc, char *argv[])
     fscanf(arq, "%d", &numCidades);
     fscanf(arq, "%d", &numEstradas);
 
+    int grafo[numCidades][numCidades];
+
+    for(int i = 0; i < numCidades; i++)
+    {
+        for(int j = 0; j < numCidades; j++)
+        {
+            if(i == j)
+            {
+                grafo[i][j] = 0;
+            }
+            else
+            {
+                grafo[i][j] = 9999999;
+            }
+        }
+    }
+
     for(int i = 0; i < numEstradas; i++)
     {
         fscanf(arq, "%d", &cidade1);
         fscanf(arq, "%d", &cidade2);
         fscanf(arq, "%d", &tamEstrada);
+        lerGrafo(numCidades, grafo, tamEstrada, cidade1, cidade2);
     }
 
     printf("Digite a cidade de origem de YL: ");
@@ -42,6 +61,17 @@ int main(int argc, char *argv[])
     scanf(" %d", &destino);
     printf("Digite a quantidade de cidades proibidas para YL: ");
     scanf(" %d", &qtdProibidas);
+
+    printf("\n\nOs valores do grafos são: \n");
+    for(int i = 0; i < numCidades; i++)
+    {
+        for(int j = 0; j < numCidades; j++)
+        {
+            printf("%d ", grafo[i][j]);
+        }
+        printf("\n");
+    }
+
 
     fclose(arq);
     return 0;
