@@ -1,7 +1,7 @@
 all: compila
 
 compila: main.o grafo.o algoritmo.o
-	gcc main.o grafo.o algoritmo.o -o prog -Wall -Wextra -Wpedantic -Wconversion
+	gcc -Wall -Wextra main.o grafo.o algoritmo.o -o prog
 
 grafo.o: grafo.c
 	gcc -c grafo.c
