@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "grafo.h"
 #include "algoritmo.h"
 #define INF 9999999
 
@@ -56,7 +55,8 @@ int main(int argc, char *argv[])
         fscanf(arq, "%d", &cidade1);
         fscanf(arq, "%d", &cidade2);
         fscanf(arq, "%d", &tamEstrada);
-        lerGrafo(numCidades, grafo, tamEstrada, cidade1, cidade2);
+        grafo[cidade1 - 1][cidade2 - 1] = tamEstrada;
+        grafo[cidade2 - 1][cidade1 - 1] = tamEstrada;
     }
 
     printf("Digite a cidade de origem de YL: ");

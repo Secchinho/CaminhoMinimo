@@ -84,5 +84,4 @@ void dijkstra(int qtdProibidas ,int numCidades, int matGrafo[numCidades][numCida
             }
         }
     }
-
 }

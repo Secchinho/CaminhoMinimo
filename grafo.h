@@ -1,1 +1,0 @@
-void lerGrafo(int numCidades, int matGrafo[numCidades][numCidades], int tamEstrada, int cidade1, int cidade2);
